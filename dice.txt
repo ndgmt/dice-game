@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>‚·‚²‚ë‚­</title>
+  <title>ã™ã”ã‚ã</title>
   <style>
     body {
       text-align: center;
@@ -27,17 +26,17 @@
   </style>
 </head>
 <body>
-  <h1>‚·‚²‚ë‚­</h1>
+  <h1>ã™ã”ã‚ã</h1>
   <div>
     <img id="dice">
   </div>
-  <button onclick="rollDice()">ƒTƒCƒRƒ‚ğ‚Ó‚éI</button>
+  <button onclick="rollDice()">ã‚µã‚¤ã‚³ãƒ­ã‚’ãµã‚‹ï¼</button>
   <div id="result"></div>
 
   <script>
     function rollDice() {
       let count = 0;
-      let maxCount = Math.floor(Math.random() * 10) + 15; // ‰ñ“]”
+      let maxCount = Math.floor(Math.random() * 10) + 15; // å›è»¢æ•°
 
       const interval = setInterval(() => {
         const temp = Math.floor(Math.random() * 6) + 1;
@@ -49,12 +48,12 @@
 
           const final = Math.floor(Math.random() * 6) + 1;
           document.getElementById("dice").src = final + ".png";
-          document.getElementById("result").textContent = `o‚½–ÚF${final}`;
+          document.getElementById("result").textContent = `å‡ºãŸç›®ï¼š${final}`;
         }
       }, 100);
     }
 
-    // ‰Šú‰»
+    // åˆæœŸåŒ–
     window.onload = () => {
       document.getElementById("dice").src = "1.png";
       document.getElementById("result").textContent = "";

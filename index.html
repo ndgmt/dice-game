@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>サイコロ</title>
+  <title>すごろく用さいころ</title>
   <style>
     body {
       font-family: sans-serif;
@@ -49,29 +49,27 @@
   </style>
 </head>
 <body>
-  <h1>すごろく用サイコロ</h1>
-  <img id="dice" src="1.png" alt="サイコロ">
-  <button onclick="rollDice()">サイコロをふる</button>
+  <h1>すごろく用さいころ</h1>
+  <img id="dice" src="1.png" alt="さいころ">
+  <button onclick="rollDice()">さいころをふる</button>
   <div id="result"></div>
 
   <script>
     function rollDice() {
       let count = 0;
-      let maxCount = Math.floor(Math.random() * 10) + 15;
+      const maxCount = Math.floor(Math.random() * 10) + 15;
 
       const interval = setInterval(() => {
         const temp = Math.floor(Math.random() * 6) + 1;
-        // キャッシュ防止にランダムクエリを付ける
-        document.getElementById("dice").src = `${temp}.png?${Date.now()}`;
+        document.getElementById("dice").src = `${temp}.png`; 
         count++;
 
         if (count >= maxCount) {
           clearInterval(interval);
           const final = Math.floor(Math.random() * 6) + 1;
-          document.getElementById("dice").src = `${final}.png?${Date.now()}`;
+          document.getElementById("dice").src = `${final}.png`;
           document.getElementById("result").textContent = `出た目：${final}`;
 
-          // バイブレーション：200ミリ秒
           if (navigator.vibrate) {
             navigator.vibrate(200);
           }
@@ -80,7 +78,8 @@
     }
 
     window.onload = () => {
-      document.getElementById("dice").src = "1.png?" + Date.now(); // キャッシュ対策
+      // 画像キャッシュそのまま使用
+      document.getElementById("dice").src = "1.png";
       document.getElementById("result").textContent = "";
     };
   </script>
